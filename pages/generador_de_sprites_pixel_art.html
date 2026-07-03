@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creador de Avatar | Fábrica de Cupcakes</title>
+    <link rel="icon" type="image/png" href="../favicon.png">
+    <!-- Tailwind CSS para el diseño de la interfaz -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Librería de Iconos (Boxicons) -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">    <link rel="stylesheet" href="../css/generador_de_sprites_pixel_art.css">
+</head>
+<body class="text-stone-200 min-h-screen p-4 md:p-8">
+
+    <div class="max-w-7xl mx-auto">
+        <!-- Encabezado con Botones de Navegación -->
+        <header class="text-center mb-8 border-4 border-dashed border-pink-300 p-6 bg-[#4e342e] rounded-lg shadow-2xl relative">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                <a href="../f_brica_de_cupcakes_kawaii_retro.html" class="pixel-font text-[9px] bg-pink-200 hover:bg-pink-100 text-stone-800 font-bold py-3 px-4 border-b-4 border-pink-400 rounded active:border-b-0">
+                    <i class='bx bxs-game'></i> VOLVER AL JUEGO
+                </a>
+                <div>
+                    <h1 class="pixel-font text-lg md:text-2xl text-pink-200 mb-2 drop-shadow-[0_2px_0_rgba(0,0,0,1)]">
+                        <i class='bx bxs-cupcake'></i> CREADOR DE AVATAR <i class='bx bxs-cupcake'></i>
+                    </h1>
+                    <p class="text-xs text-pink-300 pixel-font mt-2">
+                        Guarda tus cambios directamente en el navegador
+                    </p>
+                </div>
+                <button id="btn-save-all" class="pixel-font text-[9px] bg-pink-400 hover:bg-pink-300 text-stone-800 font-bold py-3 px-4 border-b-4 border-pink-600 rounded active:border-b-0">
+                    <i class='bx bxs-magic-wand'></i> APLICAR AL JUEGO
+                </button>
+            </div>
+        </header>
+
+        <!-- Notificación de Guardado -->
+        <div id="toast" class="hidden fixed top-5 left-1/2 transform -translate-x-1/2 z-50 bg-pink-300 text-stone-800 border-4 border-white pixel-font text-[10px] p-4 rounded shadow-2xl text-center">
+            ¡DISEÑOS GUARDADOS! <br>
+            <span class="text-xs font-sans font-bold">Tus cambios se han aplicado al juego.</span>
+        </div>
+
+        <!-- Panel principal -->
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+            
+            <!-- Barra lateral de personalización de colores -->
+            <div class="lg:col-span-1 bg-[#3e2723] border-4 border-white p-6 rounded-lg shadow-xl self-start">
+                <h2 class="pixel-font text-xs text-pink-300 mb-6 border-b-2 border-pink-300 pb-2">PALETA DE COLORES</h2>
+                
+                <div class="space-y-4 text-xs font-bold">
+                    <!-- Color Outline -->
+                    <div>
+                        <label class="block mb-1 text-stone-400">Borde / Outline:</label>
+                        <div class="flex items-center gap-2">
+                            <input type="color" id="col-outline" value="#4e342e" class="w-10 h-10 border-2 border-white rounded cursor-pointer bg-transparent">
+                            <span class="text-gray-400">#4E342E</span>
+                        </div>
+                    </div>
+                    <!-- Color Pirotín Papel -->
+                    <div>
+                        <label class="block mb-1 text-pink-200">Papel Pirotín:</label>
+                        <div class="flex items-center gap-2">
+                            <input type="color" id="col-paper" value="#ffc2d1" class="w-10 h-10 border-2 border-white rounded cursor-pointer bg-transparent">
+                            <span class="text-gray-400">#FFC2D1</span>
+                        </div>
+                    </div>
+                    <!-- Color Pirotín Sombras -->
+                    <div>
+                        <label class="block mb-1 text-pink-300">Pirotín Sombra:</label>
+                        <div class="flex items-center gap-2">
+                            <input type="color" id="col-paperShadow" value="#e08e9f" class="w-10 h-10 border-2 border-white rounded cursor-pointer bg-transparent">
+                            <span class="text-gray-400">#E08E9F</span>
+                        </div>
+                    </div>
+                    <!-- Color Masa de Vainilla -->
+                    <div>
+                        <label class="block mb-1 text-stone-300">Masa (Muffin/Cake):</label>
+                        <div class="flex items-center gap-2">
+                            <input type="color" id="col-cake" value="#bcaaa4" class="w-10 h-10 border-2 border-white rounded cursor-pointer bg-transparent">
+                            <span class="text-gray-400">#BCAAA4</span>
+                        </div>
+                    </div>
+                    <!-- Color Sombras de Masa -->
+                    <div>
+                        <label class="block mb-1 text-stone-400">Masa Sombra:</label>
+                        <div class="flex items-center gap-2">
+                            <input type="color" id="col-cakeShadow" value="#8d6e63" class="w-10 h-10 border-2 border-white rounded cursor-pointer bg-transparent">
+                            <span class="text-gray-400">#8D6E63</span>
+                        </div>
+                    </div>
+                    <!-- Color de la Crema -->
+                    <div>
+                        <label class="block mb-1 text-stone-100">Crema / Frosting:</label>
+                        <div class="flex items-center gap-2">
+                            <input type="color" id="col-crema" value="#ffecf0" class="w-10 h-10 border-2 border-white rounded cursor-pointer bg-transparent">
+                            <span class="text-gray-400">#FFECF0</span>
+                        </div>
+                    </div>
+                    <!-- Color Sombras Crema -->
+                    <div>
+                        <label class="block mb-1 text-stone-300">Crema Sombra:</label>
+                        <div class="flex items-center gap-2">
+                            <input type="color" id="col-cremaShadow" value="#ffc2d1" class="w-10 h-10 border-2 border-white rounded cursor-pointer bg-transparent">
+                            <span class="text-gray-400">#FFC2D1</span>
+                        </div>
+                    </div>
+                    <!-- Color Bowls -->
+                    <div>
+                        <label class="block mb-1 text-pink-200">Color Bowls:</label>
+                        <div class="flex items-center gap-2">
+                            <input type="color" id="col-bowl" value="#ffb3c6" class="w-10 h-10 border-2 border-white rounded cursor-pointer bg-transparent">
+                            <span class="text-gray-400">#FFB3C6</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-8 border-t border-pink-900 pt-4 text-center">
+                    <button id="btn-reset-colors" class="pixel-font text-[9px] w-full bg-pink-600 hover:bg-pink-500 text-white font-bold py-2 px-3 border-b-4 border-pink-800 rounded active:border-b-0">
+                        RESET COLOR
+                    </button>
+                </div>
+            </div>
+
+            <!-- Galería de Sprites Generados -->
+            <div class="lg:col-span-3 space-y-8">
+                <div class="bg-[#4e342e] border-4 border-pink-300 p-6 rounded-lg shadow-xl">
+                    <div class="flex flex-col sm:flex-row justify-between items-center mb-6 border-b border-pink-800 pb-3 gap-4">
+                        <h2 class="pixel-font text-xs text-pink-300">ASSETS DEL JUEGO</h2>
+                        
+                        <!-- Control de Escala Global para la descarga -->
+                        <div class="flex items-center gap-2 text-xs">
+                            <span class="font-bold">Tamaño de exportación:</span>
+                            <select id="export-resolution" class="bg-[#3e2723] border-2 border-pink-300 text-white p-1 rounded font-bold">
+                                <option value="32">32x32 px (Original)</option>
+                                <option value="64">64x64 px (Retro)</option>
+                                <option value="128">128x128 px</option>
+                                <option value="256" selected>256x256 px (Recomendado)</option>
+                                <option value="512">512x512 px (HD)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Cuadrícula de Cartas de Sprites -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6" id="sprites-gallery">
+                        <!-- Las cartas se inyectarán vía JavaScript -->
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Canvas oculto auxiliar para realizar los renders de descarga -->
+    <canvas id="export-canvas" class="hidden"></canvas>
+
+    <script src="../js/generador_de_sprites_pixel_art.js"></script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fábrica de Cupcakes</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <!-- Librería de Iconos (Boxicons) -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="css/f_brica_de_cupcakes_kawaii_retro.css">
+</head>
+<body>
+
+    <h1>~ <i class='bx bxs-cupcake'></i> FÁBRICA DE CUPCAKES KAWAIIS <i class='bx bxs-cupcake'></i> ~</h1>
+
+    <!-- Contenedor del HUD (Marcadores superiores) -->
+    <div class="hud-container">
+        <div class="hud-box" style="flex-grow: 0.8;">SCORE: <span id="txt-puntos">0000</span></div>
+        <div class="hud-box">HI-SCORE: <span id="txt-hiscore">0000</span></div>
+        <div class="hud-box vidas">LIFE: <span id="txt-vidas"><i class='bx bxs-heart'></i><i class='bx bxs-heart'></i><i class='bx bxs-heart'></i></span></div>
+        <button id="btn-mute" class="hud-btn-generador" style="flex: 0.5;"><i class='bx bx-volume-full'></i></button>
+        <!-- Botón de acceso directo al generador -->
+        <a href="pages/generador_de_sprites_pixel_art.html" class="hud-btn-generador"><i class='bx bxs-palette'></i> DISEÑAR</a>
+    </div>
+
+    <!-- Pantalla Principal del Juego de Arcade -->
+    <div class="arcade-screen" id="pantalla-arcade">
+        
+        <div class="bg-decoracion"></div>
+
+        <!-- Cartel de receta dinámica -->
+        <div class="cartel-receta">
+            ORDEN DE RECETA:
+            <div id="instruccion-receta">1° CREMA</div>
+        </div>
+
+        <!-- Elementos físicos de la cinta -->
+        <div class="cinta-mecanica"></div>
+        <div class="rodillos"></div>
+
+        <!-- El Cupcake animado que cruzará la pantalla (Capas dinámicas) -->
+        <div id="cupcake" class="cupcake-sprite"></div>
+
+        <!-- Pantalla de Inicio / Bienvenida -->
+        <div id="menu-inicio" class="pantalla-overlay">
+            <h2 style="color: #f472b6; line-height: 1.6;">¡BIENVENIDO A LA PASTELERÍA!</h2>
+            <p style="font-size: 8px; line-height: 1.8; max-width: 440px; margin-bottom: 15px; color: #fff;">
+                Prepara los cupcakes siguiendo la receta. ¡Que no se te escape ninguno!<br>
+                Usa el botón "DISEÑAR" para crear tu propio avatar de cupcake.<br><br>
+                <span style="color: #ffb3c6;">Usa las flechas <i class='bx bx-left-arrow-alt'></i><i class='bx bx-up-arrow-alt'></i><i class='bx bx-right-arrow-alt'></i> para jugar.</span>
+            </p>
+            <div class="botones-menu">
+                <button class="btn-retro" id="btn-start">START GAME</button>
+                <a href="pages/generador_de_sprites_pixel_art.html" class="btn-retro secundario">CREAR AVATAR <i class='bx bxs-palette'></i></a>
+            </div>
+        </div>
+
+        <!-- Pantalla de Game Over -->
+        <div id="menu-gameover" class="pantalla-overlay" style="display: none;">
+            <h2>GAME OVER</h2>
+            <p style="font-size: 10px; margin-bottom: 10px;">PUNTUACIÓN FINAL:</p>
+            <p id="new-highscore-msg" style="font-size: 10px; color: #fff9c4; display:none; margin-bottom: 10px;">¡NUEVO RÉCORD!</p>
+            <p id="puntos-finales" style="font-size: 18px; color: #00ffcc; text-shadow: 2px 2px #000; margin-bottom: 15px;">0</p>
+            <div class="botones-menu">
+                <button class="btn-retro" id="btn-restart">INTENTAR OTRA VEZ</button>
+                <a href="pages/generador_de_sprites_pixel_art.html" class="btn-retro secundario">REDISEÑAR AVATAR <i class='bx bxs-palette'></i></a>
+            </div>
+        </div>
+
+        <!-- Zona de interacción de cocina (Mesa inferior estática) -->
+        <div class="mesa-ingredientes">
+            <div style="display: flex; justify-content: space-around; width: 100%; height: 80%; align-items: center; padding: 0 4%;">
+                <div id="bowl-crema" class="bowl-pixel" title="Añadir Crema"></div>
+                <div id="bowl-granas" class="bowl-pixel" title="Añadir Granas"></div>
+                <div id="bowl-cerezas" class="bowl-pixel" title="Añadir Cereza"></div>
+            </div>
+            <div class="controles-teclado-info">
+                <span><i class='bx bx-left-arrow-alt'></i><i class='bx bx-right-arrow-alt'></i></span> MOVER - <span><i class='bx bx-up-arrow-alt'></i></span> AÑADIR
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Elementos de Audio para la atmósfera -->
+    <audio id="bg-music" src="path/to/your/music.mp3" loop></audio>
+    <audio id="rain-sound" src="path/to/your/rain.mp3" loop></audio>
+
+    <script src="js/f_brica_de_cupcakes_kawaii_retro.js"></script>
+</body>
+</html>

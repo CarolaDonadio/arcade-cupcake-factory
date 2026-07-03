@@ -1,0 +1,31 @@
+body {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #6d4c41; /* Brown 700 */
+    background-image: 
+        linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+    background-size: 20px 20px;
+    background-position: 0 0, 10px 10px;
+}
+.pixel-font {
+    font-family: 'Press Start 2P', monospace;
+}
+.checkered-bg {
+    background-color: #a1887f; /* Brown 300 */
+    background-image: 
+        linear-gradient(45deg, #8d6e63 25%, transparent 25%, transparent 75%, #8d6e63 75%, #8d6e63),
+        linear-gradient(45deg, #8d6e63 25%, transparent 25%, transparent 75%, #8d6e63 75%, #8d6e63);
+    background-size: 16px 16px;
+    background-position: 0 0, 8px 8px;
+}
+/* Custom scrollbar para estética retro */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #4e342e; /* Brown 800 */
+}
+::-webkit-scrollbar-thumb {
+    background: #ffb3c6; /* Soft Pink */
+    border-radius: 4px;
+}
