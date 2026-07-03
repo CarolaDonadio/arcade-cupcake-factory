@@ -4,6 +4,8 @@
 
 Además, el proyecto incluye una sección de personalización interna que permite rediseñar la paleta de colores de los *sprites* del juego en tiempo real y exportar los assets personalizados.
 
+![Texto alternativo](images/presentacion.png)
+
 ---
 
 ## 🎮 Características del Juego
